@@ -1,0 +1,42 @@
+  <!--Contenedor, clases para que todo quede centrado-->
+    <div class="modal-dialog text-center">
+        <!--Esta clase nos sirve para utlizar solo 3/4 de la pantalla, main section es el cuadro donde esta ubicado el login-->
+        <div class="col-sm-8 main-section">
+            <!--Lo utilizamos para solicitar informacion al usuario,modal content es la caja-->
+            <div class="modal-content">
+                <!--Nos sirve para utilizar todo el espacio de la columna,user-img es el id-->
+                <div class="col-12 user-img">
+                    <img src="../../../assets/dist/img/Avatr_usuario2.jpg"/>
+                </div>
+                <!--Formulario con boostrap,La clase indicada significa que queremos que ocupe toda esa cuolumna-->
+                <div class="col-12">
+                    <!--Esta clase indica que el formulario esta dividido por grupos-->
+                    <!--Inicio Cajon de correo o usuario-->
+                    <div class="form-group" id="correo" >
+                        <!--Esta clase indica que este input es un control del formulario-->
+                        <input type="email" class="form-control" placeholder="Correo Usuario" [(ngModel)]="email">
+                    </div>
+                    <!--Fin Cajon de correo o usuario-->
+                    <!--Inicio Cajon de Contraseña-->
+                    <div class="form-group" id="contraseña">
+                        <!--Esta clase indica que este input es un control del formulario-->
+                        <input type="password" class="form-control" placeholder="Contraseña" [(ngModel)]="clave">
+                    </div>
+                    <div class="form-group" id="mensaje-error" *ngIf="error==true">
+                        <span style="color: black;" ><strong>Email o contraseña incorrecta</strong></span>
+                     </div>
+                    <!--Fin Cajon de contraseña-->
+                    <!--Inicio boton iniciar-->
+                    <div class="form-group" id="iniciar">
+                        <!--Esta clase indica que este input es un control del formulario-->
+                        <input  type="button"   value="ingresar" class="btn btn-warning btn-block" value="Iniciar secion"  (click)="consulta('')">
+                    </div>
+                    <!--Fin boton iniciar-->
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+

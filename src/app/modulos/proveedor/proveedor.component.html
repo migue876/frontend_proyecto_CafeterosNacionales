@@ -1,0 +1,107 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0">Proveedor </h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#" style="color:black;">Home</a></li>
+          <li class="breadcrumb-item active"style="color:black;">Proveedor</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<section class="content">
+<div class="container-fluid">
+  <!--Contenido-->
+  <hr>
+  <input type="button" value="Insertar Proveedor" class="btn btn-warning" (click)="mostrar_form('ver')">
+  <hr>
+  <!--Formulario-->
+  <div id="formulario" *ngIf="mform==true">
+      <div class="row">
+        <div class="col-lg-4">
+          <input type="text" class="form-control" placeholder="Codigo" [(ngModel)]="obj_proveedor.ident">
+          <span style="color:red" *ngIf="validar_ident==false">Insertar identificacion</span>
+        </div>
+        <div class="col-lg-4">
+          <input type="text" class="form-control" placeholder="Nombre" [(ngModel)]="obj_proveedor.nombre">
+          <span style="color:red" *ngIf="validar_nombre==false">Insertar Nombre</span>
+        </div>
+        <div class="col-lg-4">
+          <input type="text" class="form-control" placeholder="Direccion" [(ngModel)]="obj_proveedor.direccion">
+          <span style="color:red" *ngIf="validar_direccion==false">Insertar direccion</span>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-lg-4">
+          <input type="text" class="form-control" placeholder="Celular" [(ngModel)]="obj_proveedor.celular">
+          <span style="color:red" *ngIf="validar_celular==false">Insertar celular</span>
+        </div>
+        <div class="col-lg-4">
+          <input type="text" class="form-control" placeholder="Email" [(ngModel)]="obj_proveedor.email">
+          <span style="color:red" *ngIf="validar_email==false">Insertar email</span>
+        </div>
+        <div class="col-lg-4">
+          <select class="form-control form-select" [(ngModel)]="id_dpto" (change)="consulta_ciu()" >
+            <option value="0" label="Seleccione dpto" selected="selected">Seleccione departamento</option>
+            <option *ngFor="let itemd of dpto" value="{{itemd.id_dpto}}" >{{itemd.nombre}}</option>
+          </select>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-lg-4">
+          <select class="form-control form-select" [(ngModel)]="obj_proveedor.fo_ciudad" >
+            <option value="0" label="Seleccione ciudad" selected="selected">Seleccione ciudad</option>
+            <option *ngFor="let itempr of ciudad" value="{{itempr.id_ciudad}}" >{{itempr.nombre}}</option>
+          </select>
+          <span style="color:red" *ngIf="validar_ciudad==false">Seleccionar ciudad</span>
+        </div>
+        <div class="col-lg-4">
+          <input type="button" value="Guardar" class="btn btn-primary" style="width: 100%" (click)="validar('guardar')" *ngIf="botones_form==false">
+          <input type="button" value="Editar" class="btn btn-primary" style="width: 100%" *ngIf="botones_form==true" (click)="validar('editar')">
+        </div>
+        <div class="col-lg-4">
+          <input type="button" value="Cancelar" class="btn btn-secondary" style="width: 100%" (click)="mostrar_form('no ver')">
+        </div>
+      </div>
+  </div>
+  <div id="tabla">
+    <div class="row">
+      <div class="col-lg-1"></div>
+      <div class="col-lg-11">
+        <div class="table-responsive">
+          <table class="table">
+            <tr>
+              <th>Ident</th>
+              <th>Nombre</th>
+              <th>Direccion</th>
+              <th>Celular</th>
+              <th>email</th>
+              <th>Ciudad</th>
+              <th>Acciones</th>
+            </tr>
+            <tr *ngFor="let item of proveedor">
+              <td>{{item.ident}}</td>
+              <td>{{item.nombre}}</td>
+              <td>{{item.direccion}}</td>
+              <td>{{item.celular}}</td>
+              <td>{{item.email}}</td>
+              <td>{{item.ciudad}}</td>
+              <td>
+                <span class="fas fa-edit" style="color:blue; cursor: pointer" title="Editar" (click)="cargar_datos(item,item.id_prov)"></span>
+                <span class="fas fa-minus-square" style="color:red" title="Eliminar; cursor: pointer" (click)="eliminar(item.id_prov)"></span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</section>

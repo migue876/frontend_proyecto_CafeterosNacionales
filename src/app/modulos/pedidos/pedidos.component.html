@@ -1,0 +1,88 @@
+<!-- Content Header (Page header) -->
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 >Pedidos</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li ><a href="#" style="color:black;">Home</a></li>
+          <li style="color:blue;">/Pedidos</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<section class="content">
+  <div class="container-fluid">
+    <!-- Contenido-->
+    <hr>
+    <input type="button" value="Insertar Pedido" class="btn" style="background-color: #ff0000a2; color: #ffffff;" (click)="insertar()">
+    <!--Formulario-->
+    <div id="formulario"></div>
+    <hr>
+    <div id="tabla">
+      <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-11">
+          <div class="table-responsive">
+            <table class="table">
+              <tr>
+                <th>No. venta</th>
+                <th>Fecha</th>
+                <th>Cliente</th>
+                <th>Descripción</th>
+                <th>Total</th>
+                <th>Vendedor</th>
+                <th>Acciones</th>
+              </tr>
+              <tr *ngFor="let item of ventas">
+                <td style="color: red; font-weight: bold;">0{{item.id_venta}}</td>
+                <td>{{item.fecha}}</td>
+                <td>{{item.nombrecl}}</td>
+                <td>
+                  <input type="button" class="btn btn-outline-primary btn-sm" value="Ver Productos" (click)="mostrar_modal(1, item.id_venta)"><!-- //video -->
+                </td>
+                <td>{{item.total | currency}}</td>
+                <td>{{item.nombreus}}</td>
+                <td>
+                  <span class="fas fa-edit" style="color: blue; cursor: pointer" title="Editar"></span>
+                  <span class="fas fa-minus-square" style="color: red; cursor: pointer" title="eliminar"(click)="eliminar(item.id_pedido)"></span>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+</div>
+</section>
+<!-- MODAL -->
+<div id="VerProductos" *ngIf="modal==true">
+  <table class="table">
+    <tr>
+      <th>Código</th>
+      <th>Nombre</th>
+      <th>V. Unitario</th>
+      <th>Cantidad</th>
+      <th>Subtotal</th>
+    </tr>
+    <tr *ngFor="let itemp of productos">
+      <td>{{itemp[0]}}</td>
+      <td>{{itemp[1]}}</td>
+      <td>{{itemp[2] | currency}}</td>
+      <td>{{itemp[3]}}</td>
+      <td>{{itemp[4] | currency}}</td>
+    </tr>
+    <tr>
+      <td colspan="3"></td>
+      <td><b>TOTAL:</b></td>
+      <td>{{total | currency}}</td>
+    </tr>
+  </table>
+  <input type="button" class="btn btn-secondary" value="Cerrar" (click)="mostrar_modal(0, 1)">
+</div>
+

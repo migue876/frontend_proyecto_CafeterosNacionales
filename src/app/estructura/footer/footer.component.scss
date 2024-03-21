@@ -1,0 +1,11 @@
+strong{
+    padding-left: 15px;
+}
+.main-footer{
+    background: #ACFFB0;
+}
+@media only screen and (max-width:800px) {
+    .main-footer{
+        display: none;
+    }
+}

@@ -1,0 +1,71 @@
+.main-section{
+    //para centrar
+    margin: 0 auto;
+    //Para que de   arriba baje/
+    margin-top: 45%;
+    //Padding es la propiedad de relleno de los bordes/
+    padding: 0;
+}.user-img{
+    //La margen top en negativa para que suba la imagen/
+    margin-top: -50px;
+    //Para que este separado de los otros elementos/
+    margin-bottom: 50px;
+}.modal-content{
+    background: rgba(209, 209, 209, 0.306);
+    //opacidad de la caja/
+    opacity: .95;
+    //Bordes arriba-abajo   lados/
+    padding: 0 20px;
+    //Sombra bordes horizontal-vertical-grosor-color/
+    box-shadow: 0px 0px 10px rgb(209, 207, 118);
+}
+//Dentro del identidicador user-img le indico nuevamente img porque solo va a tocar la imagen que esta dentro de ese identicador/
+.user-img img{
+    width: 100px;
+    height: 100px;
+    box-shadow: 0px 0px 10px rgb(209, 207, 118);
+    border-radius: 50%;
+}
+//Vamo a modificar el grupo del formulario, en este caso los input/
+.form-group{
+  font-family: "Work Sans", sans-serif;
+}
+.form-group input{
+    //Ancho de los input/
+    height: 50px;
+    //Tamaño de la letra/
+    font-size: 15px;
+    //Sombra del borde/
+    box-shadow: 0px 0px 30px rgb(118, 196, 228);
+    //Este padding es interno para poner los iconos, padding a la derecha/
+    padding-left: 20%;
+    border-radius: 15px;
+}.form-group::before{
+    //Nos permite hacer el llamado de font awesome en el grupo/
+    font-family: 'Font Awesome 5 Free';
+    //Los valores que tengan la clase form grupo tendra una posicion absoluta, combinada/
+    position: absolute;
+    //Posicion del icono/
+    left: 28px;
+    //Tamaño del icono/
+    font-size: 22px;
+    //Posicion del icono, mas abajo/
+    padding-top: 8px;
+}
+//Indicamos cual icono va a entrar en el cajon de correo/
+.form-group#correo::before{
+    content: '\f0e0';
+    color: rgb(118, 196, 228);
+}
+//Indicamos cual icono va a entrar en el cajon de contraseña/
+.form-group#contraseña::before{
+    content: '\f057';
+    color: rgb(118, 196, 228);
+}
+.form-group#iniciar::before{
+  content: '\f164';
+  color: black;
+
+}
+
+

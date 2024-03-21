@@ -1,0 +1,25 @@
+
+.main-header{
+    background: #D7FFD9;
+    //border: 4px solid rgb(5, 74, 5);
+}
+.boton{
+    padding: 40px;
+    font-size: 26px;
+    color:black;
+}
+.boton-responsive{
+    display: none;
+    color: #000;
+}
+@media only screen and (max-width:800px) {
+    .boton{
+        display: none;
+    }
+    .boton-responsive{
+        display: inline-block;
+        padding-right: 30px;
+        font-size: 26px;
+        color: #000;
+    }
+}
